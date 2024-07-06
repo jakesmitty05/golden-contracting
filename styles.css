@@ -217,7 +217,7 @@ html {
   opacity: 0.8;
 }
 
-.team {
+.gallery {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -287,17 +287,6 @@ html {
   box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   z-index: 50;
-}
-
-.google-map {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.google-map iframe {
-  box-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .photoGallery {
@@ -390,6 +379,65 @@ html {
   cursor: pointer;
 }
 
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+  grid-gap: 40px;
+  margin: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+}
+
+.service {
+  height: 100px;
+  background-color: #b6b6b6;
+  padding: 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.service.expanded {
+  height: auto;
+}
+
+.service-title {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.service-description {
+  display: none;
+  font-size: 1.8rem;
+}
+
+.toggle-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(90, 90, 90);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 1500px) {
   .statement-wrapper {
     width: 80%;
@@ -418,7 +466,7 @@ html {
 }
 
 @media (max-width: 1300px) {
-  .team {
+  .gallery {
     padding-bottom: 5rem;
   }
 }

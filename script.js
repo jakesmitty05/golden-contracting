@@ -56,11 +56,6 @@ document.querySelector(".show-all-button").addEventListener("click", () => {
   document.querySelector(".show-all-button").style.display = "none";
 });
 
-
-
-
-
-
 // Add an event listener to each image in the gallery
 const images = document.querySelectorAll(".photoGallery img");
 const modal = document.getElementById("imageModal");
@@ -77,4 +72,24 @@ images.forEach((image) => {
 const closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+});
+
+const services = document.querySelectorAll('.service');
+
+services.forEach(service => {
+  service.addEventListener('click', () => {
+    const isExpanded = service.classList.contains('expanded');
+    
+    services.forEach(s => {
+      s.classList.remove('expanded');
+      s.querySelector('.service-description').style.display = 'none';
+      s.querySelector('.toggle-arrow').classList.remove('rotate');
+    });
+
+    if (!isExpanded) {
+      service.classList.add('expanded');
+      service.querySelector('.service-description').style.display = 'block';
+      service.querySelector('.toggle-arrow').classList.add('rotate');
+    }
+  });
 });
